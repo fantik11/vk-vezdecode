@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { HashRouter as Router, Switch, Route } from 'react-router-dom';
 
 import Home from './panels/Home';
 import Place from './panels/Place';
@@ -218,7 +218,7 @@ const App = () => {
 									}
 
 									const serialized = JSON.stringify(updatedOrder);
-									
+
 									localStorage.setItem('orders', serialized);
 									localStorage.setItem('orderStatuses', JSON.stringify(nextOrderStatuses));
 
