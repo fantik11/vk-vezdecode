@@ -36,12 +36,12 @@ const Place = ({ item, order, onIncrementPosition, onDecrementPosition, area }) 
                 return foodIds.has(id);
             })
             .reduce((result, value) => {
-                const { count, item: { price }} = value;
+                const {count} = value;
 
                 return result + parseInt(count);
             }, 0);
 
-        return accounting.formatNumber(result, 0, ' ');
+        return result || 0;
     }, [ order, item ]);
 
   return (
@@ -120,12 +120,12 @@ const Place = ({ item, order, onIncrementPosition, onDecrementPosition, area }) 
       </ul>
       <footer className="Place__footer">
         <Link to={`/basket/${area.id}/${item.id}`} className="Place__order" onClick={e => {
-            if(orderCount == 0)
+            if(orderCount === 0)
             {
                 e.preventDefault();
             }
         }}>
-            Оформить заказ (${price})
+            Оформить заказ ({price})
         </Link>
       </footer>
     </div>

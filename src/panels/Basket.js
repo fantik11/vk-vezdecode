@@ -25,10 +25,6 @@ const Basket = ({ match: { params: { areaId, itemId }}, foodAreas, order }) => {
         return foodIds.has(id);
       });
 
-    const updateLocalStorage = (name, value) => {
-      localStorage.setItem(name, value);
-    }
-
     const result = products.reduce((result, value) => {
         const { count, item } = value;
 
